@@ -12,20 +12,20 @@ create for ACE after school program
 
 ![alt text](https://github.com/heysungj/ACE-project/blob/main/public/photos/head.png)
 
-**Route Table:**
+# Route Table:
 
-• Index GET / # Home page
+• Index GET / ** Home page**
 
-• GET /admin # Admin account
+• GET /admin ** Admin account**
 
-• GET /blogs # Show blogs
+• GET /blogs ** Show blogs**
 
-• DELETE /blogs/:id # Delete blogs
+• DELETE /blogs/:id ** Delete blogs**
 
-• POST /blogs # Post blog
+• POST /blogs ** Post blog **
 
-• PUT /blogs/:id # Update blog
+• PUT /blogs/:id ** Update blog**
 
-• POST /admin # Create admin
+• POST /admin ** Create admin**
 
-• POST /admin/login # Admin login
+• POST /admin/login ** Admin login**
