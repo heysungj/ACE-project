@@ -15,7 +15,7 @@ export default function NavBar(props) {
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
           <Link className="navbar-brand" href="#" to="/">
-            <img src={aceLogo} alt="" width="100" height="100" />
+            <img src={aceLogo} alt="" width="150" height="150" />
           </Link>
           <button
             className="navbar-toggler"
@@ -31,57 +31,65 @@ export default function NavBar(props) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link active" to="/">
-                  About
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link className="nav-link " to="/">
-                  Curriculum
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link className="nav-link " to="/">
-                  Blogs
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <button class="btn btn-success" type="button">
-                  <Link className="nav-link " to="/">
-                    Parent Portal
-                  </Link>
-                </button>
-              </li>
-
-              {props.user ? (
-                <>
-                  <li className="nav-item ">
-                    <Link className="nav-link active" to="/admin">
-                      Welcome, {props.user.name}
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <button class="btn btn-primary" type="button">
-                      <Link className="nav-link " to="" onClick={handleLogOut}>
-                        Log Out
-                      </Link>
-                    </button>
-                  </li>
-                </>
-              ) : (
+            <ul className="navbar-nav ">
+              <div className="list-container">
                 <li className="nav-item">
-                  <button class="btn btn-primary" type="button">
-                    <Link className="nav-link " to="/login">
-                      Admin Login
+                  <Link className="nav-link active" to="/">
+                    About
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link " to="/">
+                    Curriculum
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link " to="/">
+                    Blogs
+                  </Link>
+                </li>
+              </div>
+
+              <div className="btnContainer">
+                <li className="nav-item">
+                  <button class="btn btn-success" type="button">
+                    <Link className="nav-link insideBtn " to="/">
+                      Parent Portal
                     </Link>
                   </button>
                 </li>
-              )}
+
+                {props.user ? (
+                  <>
+                    <li className="nav-item ">
+                      <Link className="nav-link active" to="/admin">
+                        Welcome, {props.user.name}
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <button class="btn btn-primary" type="button">
+                        <Link
+                          className="nav-link insideBtn"
+                          to=""
+                          onClick={handleLogOut}
+                        >
+                          Log Out
+                        </Link>
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <li className="nav-item">
+                    <button class="btn btn-primary" type="button">
+                      <Link className="nav-link insideBtn" to="/login">
+                        Admin Login
+                      </Link>
+                    </button>
+                  </li>
+                )}
+              </div>
             </ul>
           </div>
         </div>

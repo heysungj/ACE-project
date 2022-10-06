@@ -23,3 +23,28 @@ flex-direction: column;
     font-family: 'Rubik', sans-serif;
 
 }
+
+.navbar-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.btnContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn{
+    margin: 5px;
+   
+}
+
+.insideBtn{
+    color:white
+}
