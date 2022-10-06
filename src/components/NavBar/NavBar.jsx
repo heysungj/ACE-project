@@ -1,9 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import * as usersService from '../../utilities/users-service';
+import React from "react";
+import { Link } from "react-router-dom";
+import * as usersService from "../../utilities/users-service";
 
 export default function NavBar(props) {
-
   function handleLogOut() {
     usersService.logOut();
     props.setUser(null);
@@ -11,13 +10,22 @@ export default function NavBar(props) {
 
   return (
     <nav>
-      <Link to="/orders">Order History</Link>
+      <Link to="/orders">About</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
+      <Link to="/orders/new">Curriculum</Link>
       &nbsp; | &nbsp;
-      <span>Welcome, {props.user.name}</span>
-      &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
+      {props.user ? (
+        <>
+          <span>Welcome, {props.user.name}</span>
+          <Link to="" onClick={handleLogOut}>
+            Log Out
+          </Link>
+        </>
+      ) : (
+        <button>
+          <Link to="/login">Admin Login</Link>
+        </button>
+      )}
     </nav>
   );
 }
