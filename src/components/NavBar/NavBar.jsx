@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as usersService from "../../utilities/users-service";
+import "./NavBar.css";
+import aceLogo from "./needhamACE.png";
 
 export default function NavBar(props) {
   function handleLogOut() {
@@ -9,23 +11,82 @@ export default function NavBar(props) {
   }
 
   return (
-    <nav>
-      <Link to="/orders">About</Link>
-      &nbsp; | &nbsp;
-      <Link to="/orders/new">Curriculum</Link>
-      &nbsp; | &nbsp;
-      {props.user ? (
-        <>
-          <span>Welcome, {props.user.name}</span>
-          <Link to="" onClick={handleLogOut}>
-            Log Out
+    <div className="navbar-wrapper">
+      <nav className="navbar navbar-expand-lg ">
+        <div className="container">
+          <Link className="navbar-brand" href="#" to="/">
+            <img src={aceLogo} alt="" width="100" height="100" />
           </Link>
-        </>
-      ) : (
-        <button>
-          <Link to="/login">Admin Login</Link>
-        </button>
-      )}
-    </nav>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            // data-bs-toggle="collapse"
+            // data-bs-target="#navbarNav"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/">
+                  About
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link " to="/">
+                  Curriculum
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link " to="/">
+                  Blogs
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <button class="btn btn-success" type="button">
+                  <Link className="nav-link " to="/">
+                    Parent Portal
+                  </Link>
+                </button>
+              </li>
+
+              {props.user ? (
+                <>
+                  <li className="nav-item ">
+                    <Link className="nav-link active" to="/admin">
+                      Welcome, {props.user.name}
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <button class="btn btn-primary" type="button">
+                      <Link className="nav-link " to="" onClick={handleLogOut}>
+                        Log Out
+                      </Link>
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item">
+                  <button class="btn btn-primary" type="button">
+                    <Link className="nav-link " to="/login">
+                      Admin Login
+                    </Link>
+                  </button>
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {/* <div className="imgIsolater"></div> */}
+    </div>
   );
 }
