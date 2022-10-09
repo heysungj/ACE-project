@@ -1,12 +1,14 @@
 import React from "react";
 import schedule from "./schedule.jpg";
 import "./Home.css";
+import malin from "./malinlin_jpg.jpeg";
+import { Link } from "react-router-dom";
 
 export default function NewOrderPage() {
   return (
     <main>
-      <section>
-        <h1>About us</h1>
+      <section className="content">
+        <h1 className="title">About us</h1>
         <article>
           Needham ACE Program stands for Needham After-school with Comprehensive
           Enrichment. The Program provides transportation from Needham Public
@@ -15,9 +17,10 @@ export default function NewOrderPage() {
           Dancing (Hip Hop), LEGO, and Drawing.
         </article>
       </section>
-      <section>
-        <h1>Curriculum</h1>
+      <section className="content">
+        <h1 className="title">Curriculum</h1>
         <img src={schedule} alt="" className="schedule" />
+        <img src={malin} alt="" className="malin" />
         <h4>Fall 2022 After School Operation Schedule: </h4>
 
         <ol class="list-group list-group-numbered">
@@ -32,8 +35,12 @@ export default function NewOrderPage() {
           </li>
         </ol>
       </section>
-      <section>
-        <h1>Blogs</h1>
+      <section className="content">
+        <h1 className="title">Blogs</h1>
+
+        <Link to="/blogs">
+          <button>More Blogs</button>
+        </Link>
       </section>
     </main>
   );

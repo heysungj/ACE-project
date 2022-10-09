@@ -1,20 +1,48 @@
 .schedule{
+    margin: 5px;
     width: 700px;
     height: 300px;
+    border-radius: 5px;
+}
+.malin{
+    border-radius: 5px;
+}
+.content{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-
+.title{
+    margin: 10px;
+}
 @media screen and (width <= 400px) {
     .schedule{
+        margin: 5px;
         width: 350px;
         height: 200px;
+        border-radius: 5px;
+    }
+    .malin{
+        border-radius: 5px;
+        width: 350px;
+        height: 250px;
     }
   }
 
   @media screen and (900px > width > 400px) {
     .schedule{
+        margin: 5px;
         width: 500px;
         height: 300px;
+        border-radius: 5px;
+    }
+    .malin{
+        border-radius: 5px;
+        width: 550px;
+        height: 350px;
     }
   }
 
