@@ -1,16 +1,10 @@
 import React from "react";
-import { checkToken } from "../../utilities/users-service";
+import { useEffect, useState } from "react";
 
-export default function OrderHistoryPage() {
-  async function handleCheckToken() {
-    const expDate = await checkToken();
-    console.log(expDate);
-  }
-
+export default function Blog() {
   return (
     <>
       <h1>Blogs page</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
     </>
   );
 }
