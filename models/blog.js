@@ -11,6 +11,7 @@ const blogSchema = new Schema({
     type: String,
   },
   photo: [String],
+  video: String,
   timestamps: true,
   toJSON: {
     transform: function (doc, ret) {
