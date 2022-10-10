@@ -4,6 +4,7 @@ import AddBlog from "../../components/AddBlog/AddBlog";
 import { useEffect, useState } from "react";
 
 export default function Blogs() {
+  const [blogList, setBlogList] = useState([]);
   // set up react-modal
   const customStyles = {
     content: {
@@ -48,7 +49,7 @@ export default function Blogs() {
         contentLabel="Example Modal"
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add New Blog</h2>
-        <AddBlog closeModal={closeModal} />
+        <AddBlog closeModal={closeModal} blogList={blogList} />
       </Modal>
     </main>
   );

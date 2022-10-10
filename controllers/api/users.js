@@ -1,4 +1,5 @@
 const User = require("../../models/user");
+const Blog = require("../../models/blog");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -9,6 +10,7 @@ module.exports = {
   findBlogs,
   editBlog,
   deleteBlog,
+  createBlog,
 };
 
 function checkToken(req, res) {
@@ -42,6 +44,8 @@ async function create(req, res) {
   }
 }
 
+// create new blog
+async function createBlog(req, res) {}
 // find all blogs
 async function findBlogs(req, res) {}
 

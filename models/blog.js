@@ -3,10 +3,6 @@ const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
   title: { type: String, required: true },
-  date: {
-    type: Date,
-    required: true,
-  },
   content: {
     type: String,
   },

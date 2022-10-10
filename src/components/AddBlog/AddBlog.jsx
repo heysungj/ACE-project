@@ -3,74 +3,64 @@ import { post } from "axios";
 import { getToken } from "../../utilities/users-service";
 import "./AddBlog.css";
 
-export default function AddBlog({ closeModal }) {
-  // const [newClass, setNewClass] = useState();
+export default function AddBlog({ blogList, closeModal }) {
+  const [newBlog, setNewBlog] = useState();
 
-  // const handleChange = (e) => {
-  //   if (e.target.files) {
-  //     const product = {
-  //       ...newClass,
-  //       [e.target.name]: e.target.files[0],
-  //     };
+  const handleChange = (e) => {
+    if (e.target.files) {
+      const blog = {
+        ...newBlog,
+        [e.target.name]: e.target.files[0],
+      };
 
-  //     setNewClass(product);
-  //   } else {
-  //     const product = {
-  //       ...newClass,
-  //       [e.target.name]: e.target.value,
-  //     };
+      setNewBlog(blog);
+    } else {
+      const blog = {
+        ...newBlog,
+        [e.target.name]: e.target.value,
+      };
 
-  //     setNewClass(product);
-  //   }
-  // };
+      setNewBlog(blog);
+    }
+  };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { name, photo, description, price } = newClass;
-  //   const formData = new FormData();
-  //   formData.append("name", name);
-  //   formData.append("photo", photo);
-  //   formData.append("description", description);
-  //   formData.append("price", price);
-  //   const token = getToken();
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const addedClass = await post(`/api/products/newClass`, formData, config);
-  //   console.log("added class", addedClass);
-  //   toast.success("Add Success");
-  //   productList.push(addedClass.data);
-  //   closeModal();
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { title, photo, content } = newBlog;
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("photo", photo);
+    formData.append("content", content);
+    const token = getToken();
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const addedClass = await post(`/api/users/newBlog`, formData, config);
+    console.log("added class", addedClass);
+
+    blogList.push(addedClass.data);
+    closeModal();
+  };
 
   return (
     <div>
-      <h1>add blog</h1>
-      {/* <form onSubmit={async (e) => handleSubmit(e)}>
+      <form onSubmit={async (e) => handleSubmit(e)}>
         <div className="modalContainer">
-          <label>Class Name</label>
+          <label>Blog Title</label>
           <input
             className=""
             type="text"
-            name="name"
+            name="title"
             onChange={handleChange}
             required
           />
-          <label>Class Description</label>
-          <textarea name="description" onChange={handleChange} required />
 
-          <label>Class Price</label>
+          <label>Blog Content</label>
+          <textarea name="content" onChange={handleChange} required />
 
-          <input
-            className=""
-            type="number"
-            name="price"
-            onChange={handleChange}
-            required
-          />
           <label>Photo</label>
           <input
             type="file"
@@ -80,10 +70,10 @@ export default function AddBlog({ closeModal }) {
             required
           />
           <button className="btn btn-primary" type="submit">
-            Add Class
+            Add Blog
           </button>
         </div>
-      </form> */}
+      </form>
     </div>
   );
 }
