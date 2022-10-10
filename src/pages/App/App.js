@@ -4,7 +4,7 @@ import "./App.css";
 import { getUser } from "../../utilities/users-service";
 import AuthPage from "../AuthPage/AuthPage";
 import Admin from "../Admin/Admin";
-import OrderHistoryPage from "../Blogs/Blogs";
+import Blogs from "../Blogs/Blogs";
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../Home/Home";
 
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<AuthPage setUser={setUser} />} />
-          <Route path="/blogs" element={<OrderHistoryPage />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </>
     </main>
