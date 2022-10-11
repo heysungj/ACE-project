@@ -2,6 +2,17 @@ const User = require("../../models/user");
 const Blog = require("../../models/blog");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const AWS = require("aws-sdk");
+const fs = require("fs/promises");
+
+// Set the region for AWS
+AWS.config.update({ region: "us-east-1" });
+// // Create S3 service object
+const s3 = new AWS.S3({
+  apiVersion: "2006-03-01",
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+});
 
 module.exports = {
   create,
@@ -45,7 +56,40 @@ async function create(req, res) {
 }
 
 // create new blog
-async function createBlog(req, res) {}
+async function createBlog(req, res) {
+  try {
+    // reg ex to match
+    const re = `${req.user._id.toString()}`;
+    const regex = new RegExp(re);
+    const photoUrls = [];
+
+    const allFiles = await fs.readdir("uploads/");
+    // find all files including same user id
+    const matches = allFiles.filter((filePath) => {
+      return filePath.match(regex);
+    });
+
+    const numFiles = matches.length;
+    if (numFiles) {
+      // Read in the file, convert it to base64, store to S3
+      for (let i = 0; i < numFiles; i++) {
+        await readFile(matches[i], photoUrls);
+      }
+
+      for (let i = 0; i < numFiles; i++) {
+        await removeFile(matches[i]);
+      }
+    }
+    // create new blog
+    let addedBlog = new Blog(req.body);
+    addedBlog.photo = photoUrls;
+    await addedBlog.save();
+    return res.json(addedBlog);
+  } catch (error) {
+    console.log("Error loading temp folder");
+    res.json({ error });
+  }
+}
 // find all blogs
 async function findBlogs(req, res) {}
 
@@ -65,3 +109,33 @@ function createJWT(user) {
     { expiresIn: "24h" }
   );
 }
+
+// aws setting up
+
+const readFile = async (file, urlArr) => {
+  try {
+    const fileResult = await fs.readFile("uploads/" + file);
+
+    // Buffer Pattern; how to handle buffers; straw, intake/outtake analogy
+    const base64data = new Buffer(fileResult, "binary");
+    try {
+      const result = await s3
+        .upload({
+          Bucket: process.env.AWS_BUCKET_NAME,
+          Key: file,
+          Body: base64data,
+        })
+        .promise();
+      console.log(`File upload to S3 successfully at ${result.Location}`);
+      urlArr.push(result.Location);
+    } catch (e) {
+      console.log("Error uploading file to S3", e);
+    }
+  } catch (e) {
+    console.log("Error reading temp files", e);
+  }
+};
+
+const removeFile = async (file) => {
+  await fs.rm("uploads/" + file);
+};

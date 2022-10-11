@@ -40,7 +40,7 @@ export default function Blogs() {
   return (
     <main>
       <h1>Blogs page</h1>
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal}>Add Blog</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

@@ -38,11 +38,11 @@ export default function AddBlog({ blogList, closeModal }) {
         Authorization: `Bearer ${token}`,
       },
     };
-    const addedClass = await post(`/api/users/newBlog`, formData, config);
-    console.log("added class", addedClass);
+    // const addedBlog = await post(`/api/users/newBlog`, formData, config);
+    // console.log("added Blog", addedBlog);
 
-    blogList.push(addedClass.data);
-    closeModal();
+    // blogList.push(addedBlog.data);
+    // closeModal();
   };
 
   return (
