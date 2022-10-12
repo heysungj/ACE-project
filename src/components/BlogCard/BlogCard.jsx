@@ -81,14 +81,13 @@ export default function ProductCard({
         contentLabel="Example Modal"
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit Class</h2>
-        <EditClass
+        <EditBlog
           product={product}
           productList={productList}
           setProductList={setProductList}
           closeModal={closeModal}
         />
-      </Modal>{" "}
-      */}
+      </Modal>
     </div>
   );
 }

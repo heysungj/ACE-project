@@ -14,6 +14,7 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
+// export modules
 module.exports = {
   create,
   login,
@@ -91,7 +92,10 @@ async function createBlog(req, res) {
   }
 }
 // find all blogs
-async function findBlogs(req, res) {}
+async function findBlogs(req, res) {
+  const blogs = await Blog.find();
+  res.json(blogs);
+}
 
 // edit all blogs
 async function editBlog(req, res) {}

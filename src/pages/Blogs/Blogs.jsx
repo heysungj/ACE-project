@@ -1,6 +1,8 @@
 import React from "react";
 import Modal from "react-modal";
 import AddBlog from "../../components/AddBlog/AddBlog";
+import BlogCard from "../../components/BlogCard/BlogCard";
+import * as blogAPI from "../../utilities/users-api";
 import { useEffect, useState } from "react";
 
 export default function Blogs() {
@@ -36,7 +38,17 @@ export default function Blogs() {
     setIsOpen(false);
   }
 
-  ///////////////////////////////////////////
+  ///////////////////////////////////////////'
+
+  useEffect(() => {
+    const blogs = async () => {
+      const allBlogs = await blogAPI.getBlog();
+      setBlogList(allBlogs);
+      console.log("allBlogs", allBlogs);
+    };
+
+    blogs();
+  }, []);
   return (
     <main>
       <h1>Blogs page</h1>
