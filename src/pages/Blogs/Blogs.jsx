@@ -5,7 +5,7 @@ import BlogCard from "../../components/BlogCard/BlogCard";
 import * as blogAPI from "../../utilities/users-api";
 import { useEffect, useState } from "react";
 
-export default function Blogs() {
+export default function Blogs({ user }) {
   const [blogList, setBlogList] = useState([]);
   // set up react-modal
   const customStyles = {
@@ -61,8 +61,20 @@ export default function Blogs() {
         contentLabel="Example Modal"
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add New Blog</h2>
-        <AddBlog closeModal={closeModal} blogList={blogList} />
+        <AddBlog closeModal={closeModal} blogList={blogList} user={user} />
       </Modal>
+
+      {blogList.map((blog, index) => {
+        return (
+          <BlogCard
+            title={blog.title}
+            photo={blog.photo}
+            content={blog.content}
+            date={blog.createdAt}
+            user={user}
+          />
+        );
+      })}
     </main>
   );
 }
