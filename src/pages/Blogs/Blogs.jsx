@@ -71,6 +71,9 @@ export default function Blogs({ user }) {
             photo={blog.photo}
             content={blog.content}
             date={blog.createdAt}
+            blogList={blogList}
+            blog={blog}
+            setBlogList={setBlogList}
             user={user}
           />
         );

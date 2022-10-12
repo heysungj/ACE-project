@@ -5,7 +5,16 @@ import { AiOutlineEdit } from "react-icons/ai";
 import Modal from "react-modal";
 import EditBlog from "../EditBlog/EditBlog";
 
-export default function ProductCard({ title, photo, content, date, user }) {
+export default function ProductCard({
+  title,
+  photo,
+  content,
+  date,
+  user,
+  blog,
+  blogList,
+  setBlogList,
+}) {
   // use navigate
   const navigate = useNavigate();
   const customStyles = {
@@ -53,7 +62,10 @@ export default function ProductCard({ title, photo, content, date, user }) {
         />
         {/* ) : null} */}
       </div>
-      <img className="productImg" src={photo[0]} alt="" />
+      {photo.map((img, index) => {
+        return <img className="blogImg" src={img} alt="" />;
+      })}
+
       <p>{content}</p>
 
       {/* modal */}
@@ -64,11 +76,11 @@ export default function ProductCard({ title, photo, content, date, user }) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit Class</h2>
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit Blog</h2>
         <EditBlog
-          // product={product}
-          // productList={productList}
-          // setProductList={setProductList}
+          setBlogList={setBlogList}
+          blog={blog}
+          blogList={blogList}
           closeModal={closeModal}
         />
       </Modal>

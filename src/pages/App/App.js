@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { getUser } from "../../utilities/users-service";
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<AuthPage setUser={setUser} />} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs" element={<Blogs user={user} />} />
         </Routes>
       </>
     </main>

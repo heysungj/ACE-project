@@ -18,6 +18,12 @@
 .title{
     margin: 10px;
 }
+
+.blogBtn{
+    width: 100px;
+    height: 30px;
+    
+}
 @media screen and (width <= 400px) {
     .schedule{
         margin: 5px;

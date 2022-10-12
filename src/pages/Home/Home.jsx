@@ -39,7 +39,7 @@ export default function NewOrderPage() {
         <h1 className="title">Blogs</h1>
 
         <Link to="/blogs">
-          <button>More Blogs</button>
+          <button className="btn btn-outline-info">More Blogs</button>
         </Link>
       </section>
     </main>
