@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { post } from "axios";
+import axios from "axios";
 import { getToken } from "../../utilities/users-service";
 import "./AddBlog.css";
 
@@ -7,10 +7,18 @@ export default function AddBlog({ blogList, closeModal }) {
   const [newBlog, setNewBlog] = useState();
 
   const handleChange = (e) => {
+    console.log(e.target.files);
+    // e.target.files is a list of object
     if (e.target.files) {
+      // push files into the newPhoto Array
+      let newPhoto = [];
+      for (let i = 0; i < e.target.files.length; i++) {
+        newPhoto.push(e.target.files[i]);
+      }
+      console.log("newphoto", newPhoto);
       const blog = {
         ...newBlog,
-        [e.target.name]: e.target.files[0],
+        [e.target.name]: newPhoto,
       };
 
       setNewBlog(blog);
@@ -38,7 +46,7 @@ export default function AddBlog({ blogList, closeModal }) {
         Authorization: `Bearer ${token}`,
       },
     };
-    const addedBlog = await post(`/api/users/newBlog`, formData, config);
+    const addedBlog = await axios.post(`/api/users/newBlog`, formData, config);
     console.log("added Blog", addedBlog);
 
     blogList.push(addedBlog.data);
@@ -67,6 +75,7 @@ export default function AddBlog({ blogList, closeModal }) {
             name="photo"
             className="fileBorder"
             onChange={handleChange}
+            multiple
             required
           />
           <button className="btn btn-primary" type="submit">

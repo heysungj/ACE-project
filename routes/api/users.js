@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const usersCtrl = require("../../controllers/api/users");
-const ensureLoggedIn = require("../../config/ensureLoggedIn");
+// const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
 // for aws to save photos
 const multer = require("multer");
@@ -22,7 +22,7 @@ router.post("/", usersCtrl.create);
 // POST /api/users/login
 router.post("/login", usersCtrl.login);
 // POST /api/users/newBlog
-router.post("/newBlog", usersCtrl.createBlog);
+router.post("/newBlog", upload.array("photo"), usersCtrl.createBlog);
 // GET /api/users/blogs
 router.get("/blogs", usersCtrl.findBlogs);
 // PUT /api/users/blogs/:id

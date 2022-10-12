@@ -14,12 +14,7 @@ const blogSchema = new Schema(
   },
   {
     timestamps: true,
-    toJSON: {
-      transform: function (doc, ret) {
-        delete ret.password;
-        return ret;
-      },
-    },
+    toJSON: { virtuals: true },
   }
 );
 
