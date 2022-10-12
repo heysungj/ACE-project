@@ -5,135 +5,110 @@ import axios from "axios";
 import { getToken } from "../../utilities/users-service";
 import "./EditBlog.css";
 
-export default function EditClass({
-  product,
-  productList,
-  setProductList,
-  closeModal,
-}) {
-  // const navigate = useNavigate();
-  // const [editedClass, setEditedClass] = useState({
-  //   name: product.name,
-  //   description: product.description,
-  //   price: product.price,
-  //   photo: product.photo,
-  // });
+export default function EditClass({ blog, blogList, setBlogList, closeModal }) {
+  const navigate = useNavigate();
+  const [editedBlog, setEditedBlog] = useState({
+    title: blog.title,
+    content: blog.content,
+    photo: blog.photo,
+  });
 
-  // // handle change
-  // const handleChange = (e) => {
-  //   let updatedClass = { ...editedClass };
+  // handle change
+  const handleChange = (e) => {
+    let updatedBlog = { ...editedBlog };
 
-  //   if (e.target.files) {
-  //     updatedClass[e.target.name] = e.target.files[0];
-  //   } else {
-  //     updatedClass[e.target.name] = e.target.value;
-  //   }
+    if (e.target.files) {
+      let newPhoto = [];
+      for (let i = 0; i < e.target.files.length; i++) {
+        newPhoto.push(e.target.files[i]);
+      }
+      updatedBlog[e.target.name] = newPhoto;
+    } else {
+      updatedBlog[e.target.name] = e.target.value;
+    }
 
-  //   setEditedClass(updatedClass);
-  //   console.log("edited class", updatedClass);
-  // };
+    setEditedBlog(updatedBlog);
+    console.log("updated Blog", updatedBlog);
+  };
 
-  // //   update class
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { name, photo, description, price } = editedClass;
-  //   const formData = new FormData();
-  //   formData.append("name", name);
-  //   formData.append("photo", photo);
-  //   formData.append("description", description);
-  //   formData.append("price", price);
-  //   const token = getToken();
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const updatedClass = await axios.put(
-  //     `/api/products/editClass/${product._id}`,
-  //     formData,
-  //     config
-  //   );
-  //   console.log("updated class", updatedClass);
-  //   navigate(0);
-  //   // let restProducts = productList.filter((product) => {
-  //   //   if (updatedClass.data._id !== product._id) {
-  //   //     return true;
-  //   //   }
-  //   // });
-  //   // productList = productList.filter((product) => {
-  //   //   if (updatedClass.data._id !== product._id) {
-  //   //     return true;
-  //   //   }
+  //   update blog
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { title, photo, content } = editedBlog;
+    const formData = new FormData();
+    formData.append("title", title);
+    for (let i = 0; i < editedBlog.photo.length; i++) {
+      formData.append("photo", photo[i]);
+    }
 
-  //   //   return false;
-  //   // });
+    formData.append("content", content);
+    console.log("edited formdata", formData);
+    const token = getToken();
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const updatedClass = await axios.put(
+      `/api/users/blogs/${blog._id}`,
+      formData,
+      config
+    );
+    console.log("updated class", updatedClass);
+    navigate(0);
+  };
 
-  //   // productList.push(updatedClass.data);
-  //   // console.log(productList);
-  //   // setProductList(productList);
-  //   // closeModal();
-  // };
-
-  // //   delete class
-  // const handleDelete = async () => {
-  //   const deletedClass = await productsAPI.deleteClass(product._id);
-  //   console.log("deleted class", deletedClass);
-  //   let restProducts = productList.filter((product) => {
-  //     if (deletedClass.id !== product.id) {
-  //       return true;
-  //     }
-  //   });
-  //   setProductList(restProducts);
-  //   closeModal();
-  // };
+  //   delete class
+  const handleDelete = async () => {
+    const deletedBlog = await blogAPI.deleteBlog(blog._id);
+    console.log("deleted blog", deletedBlog);
+    let restBlogs = blogList.filter((blog) => {
+      if (deletedBlog.id !== blog.id) {
+        return true;
+      }
+    });
+    setBlogList(restBlogs);
+    closeModal();
+  };
 
   return (
     <div>
       <div className="modalContainer">
-        <label>Class Name</label>
-        {/* <input
-          className=""
-          type="text"
-          name="name"
-          value={editedClass.name}
-          onChange={handleChange}
-          required
-        />
-        <label>Class Description</label>
-        <textarea
-          name="description"
-          value={editedClass.description}
-          onChange={handleChange}
-          required
-        />
-
-        <label>Class Price</label>
-
+        <label>Title</label>
         <input
           className=""
-          value={editedClass.price}
-          type="number"
-          name="price"
+          type="text"
+          name="title"
+          value={editedBlog.title}
           onChange={handleChange}
           required
         />
+        <label>Blog Content</label>
+        <textarea
+          name="content"
+          value={editedBlog.content}
+          onChange={handleChange}
+          required
+        />
+
         <label>Photo</label>
         <input
           className="fileBorder"
           type="file"
           name="photo"
           onChange={handleChange}
+          multiple
           required
         />
         <div className="flexRow">
           <button onClick={handleSubmit} className="btn btn-primary">
-            Update Class
+            Update Blog
           </button>
           <button onClick={handleDelete} class="btn btn-danger">
-            Delete Class
+            Delete Blog
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );
