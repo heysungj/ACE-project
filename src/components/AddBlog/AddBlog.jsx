@@ -37,8 +37,12 @@ export default function AddBlog({ blogList, closeModal }) {
     const { title, photo, content } = newBlog;
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("photo", photo);
+    for (let i = 0; i < newBlog.photo.length; i++) {
+      formData.append("photo", photo[i]);
+    }
+
     formData.append("content", content);
+    console.log("fromdata", formData);
     const token = getToken();
     const config = {
       headers: {
