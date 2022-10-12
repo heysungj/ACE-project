@@ -19,9 +19,9 @@ export function getBlog() {
   return sendRequest(`${BASE_URL}/blogs`);
 }
 // create new blog
-// export function createBlog(userData) {
-//   return sendRequest(BASE_URL, "POST", userData);
-// }
+export function deleteBlog(blogId) {
+  return sendRequest(`${BASE_URL}/blogs/delete/${blogId}`, "DELETE");
+}
 
 /*--- Helper Functions ---*/
 

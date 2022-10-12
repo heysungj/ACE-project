@@ -26,9 +26,9 @@ router.post("/newBlog", upload.array("photo"), usersCtrl.createBlog);
 // GET /api/users/blogs
 router.get("/blogs", usersCtrl.findBlogs);
 // PUT /api/users/blogs/:id
-router.put("/blogs/:id", usersCtrl.editBlog);
+router.put("/blogs/update/:id", upload.array("photo"), usersCtrl.editBlog);
 // DELETE /api/users/blogs/delete/:id
-router.get("/blogs/delete/:id", usersCtrl.deleteBlog);
+router.delete("/blogs/delete/:id", usersCtrl.deleteBlog);
 // GET /api/users/check-token
 // router.get("/check-token", ensureLoggedIn, usersCtrl.checkToken);
 

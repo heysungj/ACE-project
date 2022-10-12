@@ -101,7 +101,10 @@ async function findBlogs(req, res) {
 async function editBlog(req, res) {}
 
 // delete all blog
-async function deleteBlog(req, res) {}
+async function deleteBlog(req, res) {
+  const deletedBlog = await Blog.findByIdAndRemove(req.params.id);
+  res.json(deletedBlog);
+}
 
 /*-- Helper Functions --*/
 

@@ -51,7 +51,7 @@ export default function EditClass({ blog, blogList, setBlogList, closeModal }) {
       },
     };
     const updatedClass = await axios.put(
-      `/api/users/blogs/${blog._id}`,
+      `/api/users/blogs/update/${blog._id}`,
       formData,
       config
     );
