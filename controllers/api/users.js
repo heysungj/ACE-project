@@ -97,8 +97,44 @@ async function findBlogs(req, res) {
   res.json(blogs);
 }
 
-// edit all blogs
-async function editBlog(req, res) {}
+// edit the blog
+async function editBlog(req, res) {
+  try {
+    // reg ex to match
+    const re = `${req.user._id.toString()}`;
+    const regex = new RegExp(re);
+    const photoUrls = [];
+
+    const allFiles = await fs.readdir("uploads/");
+
+    const matches = allFiles.filter((filePath) => {
+      return filePath.match(regex);
+    });
+
+    const numFiles = matches.length;
+    if (numFiles) {
+      // Read in the file, convert it to base64, store to S3
+      for (let i = 0; i < numFiles; i++) {
+        await readFile(matches[i], photoUrls);
+      }
+
+      for (let i = 0; i < numFiles; i++) {
+        await removeFile(matches[i]);
+      }
+    }
+
+    const editedBlog = req.body;
+    const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, {
+      title: editedBlog.title,
+      content: editedBlog.content,
+      photo: numFiles > 0 ? photoUrls : editedBlog.photo,
+    });
+    return res.json(updatedBlog);
+  } catch (error) {
+    console.log("Error loading temp folder");
+    res.json({ error });
+  }
+}
 
 // delete all blog
 async function deleteBlog(req, res) {

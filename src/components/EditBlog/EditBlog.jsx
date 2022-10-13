@@ -5,7 +5,7 @@ import axios from "axios";
 import { getToken } from "../../utilities/users-service";
 import "./EditBlog.css";
 
-export default function EditClass({ blog, blogList, setBlogList, closeModal }) {
+export default function EditBlog({ blog, blogList, setBlogList, closeModal }) {
   const navigate = useNavigate();
   const [editedBlog, setEditedBlog] = useState({
     title: blog.title,
