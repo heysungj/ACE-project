@@ -55,9 +55,9 @@ export default function NewOrderPage() {
         <h1 className="title">Blogs</h1>
         {newList.map((blog) => {
           return (
-            <div>
-              <label className="className">{blog.title}</label>
-              <p>{blog.date}</p>
+            <div className="contentContainer">
+              <h4 className="className">{blog.title}</h4>
+              <p>{blog.createdAt}</p>
               {blog.photo.map((img, index) => {
                 return <img className="blogImg" src={img} alt="" />;
               })}
