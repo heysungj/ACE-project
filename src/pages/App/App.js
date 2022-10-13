@@ -7,6 +7,7 @@ import Admin from "../Admin/Admin";
 import Blogs from "../Blogs/Blogs";
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../Home/Home";
+import Footer from "../../components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/login" element={<AuthPage setUser={setUser} />} />
           <Route path="/blogs" element={<Blogs user={user} />} />
         </Routes>
+        <Footer />
       </>
     </main>
   );

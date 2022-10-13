@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as usersService from "../../utilities/users-service";
 import "./NavBar.css";
+import steam from "./STEAM.png";
 import aceLogo from "./needhamACE.png";
 
 export default function NavBar(props) {
@@ -31,7 +32,7 @@ export default function NavBar(props) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ">
+            <ul className="navbar-nav">
               <div className="list-container">
                 <li className="nav-item">
                   <Link className="nav-link active" to="/">
@@ -63,11 +64,6 @@ export default function NavBar(props) {
 
                 {props.user ? (
                   <>
-                    <li className="nav-item ">
-                      <Link className="nav-link active" to="/admin">
-                        Welcome, {props.user.name}
-                      </Link>
-                    </li>
                     <li className="nav-item">
                       <button class="btn btn-primary" type="button">
                         <Link
@@ -75,7 +71,7 @@ export default function NavBar(props) {
                           to=""
                           onClick={handleLogOut}
                         >
-                          Log Out
+                          {props.user.name} Log Out
                         </Link>
                       </button>
                     </li>
@@ -94,7 +90,9 @@ export default function NavBar(props) {
           </div>
         </div>
       </nav>
-      {/* <div className="imgIsolater"></div> */}
+      <div>
+        <img src={steam} alt="" className="imgIsolater" />
+      </div>
     </div>
   );
 }
