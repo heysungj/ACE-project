@@ -1,10 +1,26 @@
 import React from "react";
 import schedule from "./schedule.jpg";
+import * as blogAPI from "../../utilities/users-api";
 import "./Home.css";
 import malin from "./malinlin_jpg.jpeg";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function NewOrderPage() {
+  const [blogList, setBlogList] = useState([]);
+  // get all blogs
+  useEffect(() => {
+    const blogs = async () => {
+      const allBlogs = await blogAPI.getBlog();
+      setBlogList(allBlogs);
+      console.log("allBlogs", allBlogs);
+    };
+
+    blogs();
+  }, []);
+
+  //   get first 2 blogs
+  let newList = blogList.slice(0, 2);
   return (
     <main>
       <section className="content">
@@ -37,7 +53,19 @@ export default function NewOrderPage() {
       </section>
       <section className="content">
         <h1 className="title">Blogs</h1>
+        {newList.map((blog) => {
+          return (
+            <div>
+              <label className="className">{blog.title}</label>
+              <p>{blog.date}</p>
+              {blog.photo.map((img, index) => {
+                return <img className="blogImg" src={img} alt="" />;
+              })}
 
+              <p>{blog.content}</p>
+            </div>
+          );
+        })}
         <Link to="/blogs">
           <button className="btn btn-outline-info">More Blogs</button>
         </Link>

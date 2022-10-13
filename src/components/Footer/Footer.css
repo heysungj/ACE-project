@@ -1,0 +1,11 @@
+.iconBtn{
+    size: 1rem;
+    cursor: pointer;
+    margin: 0 0.5rem 0.5rem 0;
+    color: rgb(89, 86, 86);
+}
+
+.footerContent{
+    font-size: small;
+    color: rgb(89, 86, 86);
+}
