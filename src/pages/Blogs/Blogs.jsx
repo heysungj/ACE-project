@@ -16,19 +16,16 @@ export default function Blogs({ user }) {
 
   useEffect(() => {
     const blogs = async () => {
-      client
-        .getEntries()
-        .then((response) => {
-          console.log(response);
-          setArticles(response.items);
-        })
-        .catch(console.error);
+      const response = await client.getEntries().catch(console.error);
 
-      console.log("articles", articles);
+      console.log(response);
+      setArticles(response.items);
     };
 
     blogs();
   }, []);
+
+  console.log("articles", articles);
   return (
     <main>
       <h1>Blogs page</h1>

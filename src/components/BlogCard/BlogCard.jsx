@@ -1,14 +1,14 @@
 import "./BlogCard.css";
+import MediaCard from "../MediaCard/MediaCard";
 import marked from "marked";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { AiOutlineEdit } from "react-icons/ai";
 
 export default function ProductCard({ article, user }) {
-  const { title, content, date, photo } = article.fields;
+  const { title, blogContent, date, feature } = article.fields;
   // use navigate
   const navigate = useNavigate();
-
+  console.log(article);
   ///////////////////////////////////////////
 
   return (
@@ -16,7 +16,10 @@ export default function ProductCard({ article, user }) {
       <div className="eachProduct">
         <h3>{title}</h3>
         <h5>{date}</h5>
-        <p>{content}</p>
+        {feature.map((media, index) => {
+          return <MediaCard ley={index} media={media} />;
+        })}
+        <p>{blogContent}</p>
       </div>
     </div>
   );
