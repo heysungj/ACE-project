@@ -52,7 +52,7 @@ export default function ProductCard({
   return (
     <div className="eachProductContainer">
       <div className="eachProduct">
-        <label className="className">{title}</label>
+        <h4 className="className">{title}</h4>
         <p>{date}</p>
         {/* {user ? ( */}
         <AiOutlineEdit

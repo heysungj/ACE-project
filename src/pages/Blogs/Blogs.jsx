@@ -4,9 +4,17 @@ import AddBlog from "../../components/AddBlog/AddBlog";
 import BlogCard from "../../components/BlogCard/BlogCard";
 import * as blogAPI from "../../utilities/users-api";
 import { useEffect, useState } from "react";
+import * as contentful from "contentful";
 
 export default function Blogs({ user }) {
   const [blogList, setBlogList] = useState([]);
+  const [articles, setArticles] = useState([]);
+
+  // contenful set up
+  const client = contentful.createClient({
+    space: process.env.REACT_APP_SPACE_ID,
+    accessToken: process.env.REACT_APP_CONTENTFUL_API,
+  });
   // set up react-modal
   const customStyles = {
     content: {
@@ -45,6 +53,14 @@ export default function Blogs({ user }) {
       const allBlogs = await blogAPI.getBlog();
       setBlogList(allBlogs);
       console.log("allBlogs", allBlogs);
+
+      // fetch contentful api call
+      client
+        .getEntries()
+        .then((response) => {
+          console.log(response);
+        })
+        .catch(console.error);
     };
 
     blogs();
