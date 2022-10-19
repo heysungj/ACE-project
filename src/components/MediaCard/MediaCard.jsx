@@ -1,8 +1,10 @@
 export default function MediaCard({ media }) {
-  console.log(media);
+  const url = media.fields.file.url;
+  //   console.log(url);
+
   return (
     <div>
-      <iframe width="560" height="315" src={media.fields.file.url}></iframe>
+      <img src={url} alt="" width="300" height="300" />
     </div>
   );
 }
