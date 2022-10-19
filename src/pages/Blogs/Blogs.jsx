@@ -5,6 +5,7 @@ import * as contentful from "contentful";
 
 export default function Blogs({ user }) {
   const [articles, setArticles] = useState([]);
+  const [tags, setTags] = useState([]);
 
   // contenful set up
   const client = contentful.createClient({
@@ -16,10 +17,20 @@ export default function Blogs({ user }) {
 
   useEffect(() => {
     const blogs = async () => {
+      // get all blogs from contentful space
       const response = await client.getEntries().catch(console.error);
 
       console.log(response);
       setArticles(response.items);
+
+      // iterate through response and get all the tags
+      for (let obj of response.items) {
+        if (obj.metadata.tags.length !== 0) {
+          const tempTag = [...tags, obj.metadata.tags[0].sys.id];
+          setTags(tempTag);
+          console.log(tags);
+        }
+      }
     };
 
     blogs();
