@@ -35,6 +35,8 @@ export default function ProductCard({ article, user }) {
       )} ${formattedDate.getFullYear()}`;
 
       console.log("formatted date", dateResult);
+
+      setNewDate(dateResult);
     };
 
     func();
