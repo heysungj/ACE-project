@@ -7,18 +7,34 @@ import { useEffect, useState } from "react";
 export default function ProductCard({ article, user }) {
   const { title, blogContent, date } = article.fields;
   let [videoUrl, setVideoUrl] = useState("");
-  let [img, setImg] = useState([]);
+  let [newDate, setNewDate] = useState(date);
   // use navigate
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const func = async () => {
-      if (article.fields.img) {
-        setImg(article.fields.img);
+      // if (article.fields.img) {
+      //   setImg(article.fields.img);
+      // }
+      // if (article.fields.video) {
+      //   setVideoUrl(article.fields.video.fields.file.url);
+      // }
+
+      // format date
+      const timestamp = Date.parse(date);
+      const formattedDate = new Date(timestamp);
+      function getMonthName(monthNumber) {
+        const date = new Date();
+        date.setMonth(monthNumber - 1);
+
+        return date.toLocaleString("en-US", { month: "long" });
       }
-      if (article.fields.video) {
-        setVideoUrl(article.fields.video.fields.file.url);
-      }
+
+      const dateResult = `${formattedDate.getDate()} ${getMonthName(
+        formattedDate.getMonth()
+      )} ${formattedDate.getFullYear()}`;
+
+      console.log("formatted date", dateResult);
     };
 
     func();
@@ -43,7 +59,7 @@ export default function ProductCard({ article, user }) {
           allowfullscreen
         ></iframe>
         {/* from contentful */}
-        {article.fields.video ? (
+        {/* {article.fields.video ? (
           <iframe
             width="560"
             height="315"
@@ -53,14 +69,14 @@ export default function ProductCard({ article, user }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-        ) : null}
+        ) : null} */}
 
-        {img.length
+        {/* {img.length
           ? img.map((photo, index) => {
               return <MediaCard key={index} media={photo} />;
             })
-          : null}
-        <p>{blogContent}</p>
+          : null} */}
+        {/* <p>{blogContent}</p> */}
       </div>
     </div>
   );
