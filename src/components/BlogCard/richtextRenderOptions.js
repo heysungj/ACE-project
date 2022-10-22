@@ -46,8 +46,19 @@ const HyperLNK = ({ node, children }) => {
     </span>
   );
 };
-const CustomView = () => {
-  return <></>;
+
+const EmbeddedAsset = ({ node, children }) => {
+  if (node.data.target.fields.file.contentType.indexOf("image") !== -1)
+    return (
+      <img
+        src={node.data.target.fields.file.url}
+        alt="blog embedded image"
+        width={"60%"}
+        height={"60%"}
+      />
+    );
+
+  return <div className="mb-4 ">{children}</div>;
 };
 
 const richtextRenderOptions = {
@@ -66,6 +77,9 @@ const richtextRenderOptions = {
     },
     [INLINES.HYPERLINK]: (node, children) => {
       return <HyperLNK node={node}> {children} </HyperLNK>;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      return <EmbeddedAsset node={node} children={children} />;
     },
   },
 };
