@@ -8,10 +8,13 @@ export default function Blogs({ user }) {
   const [tags, setTags] = useState([]);
 
   // contenful set up
-  const client = contentful.createClient({
+  // contenful set up
+  const options = {
     space: process.env.REACT_APP_SPACE_ID,
     accessToken: process.env.REACT_APP_CONTENTFUL_API,
-  });
+    resolveLinks: true,
+  };
+  const client = contentful.createClient(options);
 
   ///////////////////////////////////////////'
 
@@ -40,10 +43,10 @@ export default function Blogs({ user }) {
   return (
     <main>
       <h1>Blogs page</h1>
-
-      {articles.map((article, index) => {
-        return <BlogCard key={index} article={article} user={user} />;
-      })}
+      {articles.length > 0 &&
+        articles.map((article, index) => {
+          return <BlogCard article={article} />;
+        })}
     </main>
   );
 }

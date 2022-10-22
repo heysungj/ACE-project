@@ -1,12 +1,12 @@
 import "./BlogCard.css";
-import MediaCard from "../MediaCard/MediaCard";
+import richtextRenderOptions from "./richtextRenderOptions";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import marked from "marked";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function ProductCard({ article, user }) {
   const { title, blogContent, date } = article.fields;
-  let [videoUrl, setVideoUrl] = useState("");
   let [newDate, setNewDate] = useState(date);
   // use navigate
   // const navigate = useNavigate();
@@ -46,40 +46,13 @@ export default function ProductCard({ article, user }) {
   ///////////////////////////////////////////
 
   return (
-    <div className="eachProductContainer">
-      <div className="eachProduct">
-        <h3>{title}</h3>
-        <h5>{date}</h5>
-        {/* test */}
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/-SQt2pF52k0"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        {/* from contentful */}
-        {/* {article.fields.video ? (
-          <iframe
-            width="560"
-            height="315"
-            src={videoUrl}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        ) : null} */}
-
-        {/* {img.length
-          ? img.map((photo, index) => {
-              return <MediaCard key={index} media={photo} />;
-            })
-          : null} */}
-        {/* <p>{blogContent}</p> */}
-      </div>
+    <div className="">
+      <h4>{title}</h4>
+      <h5>{newDate}</h5>
+      {documentToReactComponents(
+        article.fields.blogContent,
+        richtextRenderOptions
+      )}
     </div>
   );
 }
