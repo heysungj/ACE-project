@@ -1,5 +1,6 @@
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import _ from "lodash";
+import "./BlogCard.css";
 
 const Bold = ({ children }) => (
   <span className="font-bold text-blue-500"> {children} </span>

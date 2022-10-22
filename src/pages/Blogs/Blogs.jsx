@@ -2,6 +2,7 @@ import React from "react";
 import BlogCard from "../../components/BlogCard/BlogCard";
 import { useEffect, useState } from "react";
 import * as contentful from "contentful";
+import "./Blogs.css";
 
 export default function Blogs({ user }) {
   const [articles, setArticles] = useState([]);
@@ -43,10 +44,12 @@ export default function Blogs({ user }) {
   return (
     <main>
       <h1>Blogs page</h1>
-      {articles.length > 0 &&
-        articles.map((article, index) => {
-          return <BlogCard article={article} />;
-        })}
+      <div className="blogsContainer">
+        {articles.length > 0 &&
+          articles.map((article, index) => {
+            return <BlogCard article={article} />;
+          })}
+      </div>
     </main>
   );
 }
