@@ -1,5 +1,6 @@
 import React from "react";
 import BlogCard from "../../components/BlogCard/BlogCard";
+import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
 import * as contentful from "contentful";
 import "./Blogs.css";
@@ -37,6 +38,13 @@ export default function Blogs({ user }) {
   return (
     <main>
       <h1>Blogs page</h1>
+      <div>
+        {tags.map((tag) => {
+          return (
+            <Button tag={tag} articles={articles} setArticles={setArticles} />
+          );
+        })}
+      </div>
       <div className="blogsContainer">
         {articles.length > 0 &&
           articles.map((article, index) => {
