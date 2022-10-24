@@ -6,15 +6,22 @@
     overflow-x: auto;
 }
 
-@media screen and (width <= 400px) {
-    /* .blogImg{
+iframe{
+    width: 560px;
+    height: 315px;
+}
+@media screen and (width <= 415px) {
+  .blogImg{
         width:90vw;
         height: 45vh;
         border-radius: 5px;
     }
     
     iframe{
-        width: 350px;
-        height: 316px;
-    } */
+        border-radius: 5px;
+        margin-left: 1px;
+        margin-right: 1px;
+        width: 280px;
+        height: 216px;
+    } 
   }

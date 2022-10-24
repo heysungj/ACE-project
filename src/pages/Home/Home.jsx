@@ -4,16 +4,30 @@ import * as blogAPI from "../../utilities/users-api";
 import "./Home.css";
 import malin from "./malinlin_jpg.jpeg";
 import { Link } from "react-router-dom";
+import * as contentful from "contentful";
 import { useEffect, useState } from "react";
+import BlogCard from "../../components/BlogCard/BlogCard";
 
 export default function NewOrderPage() {
   const [blogList, setBlogList] = useState([]);
-  // get all blogs
+
+  // contenful set up
+  const options = {
+    space: process.env.REACT_APP_SPACE_ID,
+    accessToken: process.env.REACT_APP_CONTENTFUL_API,
+    resolveLinks: true,
+  };
+  const client = contentful.createClient(options);
+
+  ///////////////////////////////////////////'
+  // get first 2  blogs
   useEffect(() => {
     const blogs = async () => {
-      const allBlogs = await blogAPI.getBlog();
-      setBlogList(allBlogs);
-      console.log("allBlogs", allBlogs);
+      // get all blogs from contentful space
+      const response = await client.getEntries().catch(console.error);
+
+      console.log(response);
+      setBlogList(response.items);
     };
 
     blogs();
@@ -53,19 +67,12 @@ export default function NewOrderPage() {
       </section>
       <section className="content">
         <h1 className="title">Blogs</h1>
-        {newList.map((blog) => {
-          return (
-            <div className="contentContainer">
-              <h4 className="className">{blog.title}</h4>
-              <p>{blog.createdAt}</p>
-              {blog.photo.map((img, index) => {
-                return <img className="blogImg" src={img} alt="" />;
-              })}
-
-              <p>{blog.content}</p>
-            </div>
-          );
-        })}
+        <div className="blogsContainer">
+          {newList.length > 0 &&
+            newList.map((article, index) => {
+              return <BlogCard article={article} />;
+            })}
+        </div>
         <Link to="/blogs">
           <button className="btn btn-outline-info">More Blogs</button>
         </Link>

@@ -33,7 +33,9 @@ const HyperLNK = ({ node, children }) => {
 
   if (URI.indexOf("youtube.com") !== -1) {
     return (
-      <iframe src={URI} width={"80%"} height={"60%"} frameborder="0"></iframe>
+      <div className="">
+        <iframe src={URI} className="" frameborder="0"></iframe>
+      </div>
     );
   }
 
