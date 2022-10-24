@@ -40,9 +40,7 @@ export default function Blogs({ user }) {
       <h1>Blogs page</h1>
       <div>
         {tags.map((tag) => {
-          return (
-            <Button tag={tag} articles={articles} setArticles={setArticles} />
-          );
+          return <Button tag={tag} articles={articles} tags={tags} />;
         })}
       </div>
       <div className="blogsContainer">

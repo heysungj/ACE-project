@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Blogs({ tag, articles }) {
+export default function Blogs({ tag, articles, tags }) {
   // use navigate
   const navigate = useNavigate();
   //   get tag name
@@ -13,13 +13,15 @@ export default function Blogs({ tag, articles }) {
     const filteredAriticles = await articles.filter((article) => {
       return article.metadata.tags[0].sys.id === tagName;
     });
-    setNewArticles(filteredAriticles);
-    // console.log("filteredAriticles", filteredAriticles);
+    await setNewArticles(filteredAriticles);
+    console.log("filteredAriticles", filteredAriticles);
 
     // navigate to filtered articles page
     navigate(`/blogs/${tagName}`, {
       state: {
         newArticles,
+        articles,
+        tags,
       },
     });
   }
