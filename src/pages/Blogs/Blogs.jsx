@@ -9,7 +9,6 @@ export default function Blogs({ user }) {
   const [tags, setTags] = useState([]);
 
   // contenful set up
-  // contenful set up
   const options = {
     space: process.env.REACT_APP_SPACE_ID,
     accessToken: process.env.REACT_APP_CONTENTFUL_API,
@@ -23,18 +22,12 @@ export default function Blogs({ user }) {
     const blogs = async () => {
       // get all blogs from contentful space
       const response = await client.getEntries().catch(console.error);
+      const tags = await client.getTags();
+      console.log("tags", tags);
 
       console.log(response);
       setArticles(response.items);
-
-      // iterate through response and get all the tags
-      for (let obj of response.items) {
-        if (obj.metadata.tags.length !== 0) {
-          const tempTag = [...tags, obj.metadata.tags[0].sys.id];
-          setTags(tempTag);
-          console.log(tags);
-        }
-      }
+      setTags(tags.items);
     };
 
     blogs();

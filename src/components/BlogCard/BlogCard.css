@@ -3,10 +3,11 @@
     border: 3px solid lightgray;
     margin: 10px;
     width: 80%;
+    overflow-x: auto;
 }
 
 @media screen and (width <= 400px) {
-    .blogImg{
+    /* .blogImg{
         width:90vw;
         height: 45vh;
         border-radius: 5px;
@@ -15,5 +16,5 @@
     iframe{
         width: 350px;
         height: 316px;
-    }
+    } */
   }

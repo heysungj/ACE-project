@@ -46,7 +46,7 @@ export default function ProductCard({ article, user }) {
   ///////////////////////////////////////////
 
   return (
-    <div className="container-lg blogContainer">
+    <div className="blogContainer">
       <h4>{title}</h4>
       <h5>{newDate}</h5>
       {documentToReactComponents(
