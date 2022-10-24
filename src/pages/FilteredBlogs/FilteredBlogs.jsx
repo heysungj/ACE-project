@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Blogs/Blogs.css";
 
-export default function Blogs({ user }) {
+export default function Blogs() {
   // use navigate
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { newArticles, articles, tags } = state;
+  const { filteredAriticles, articles, tags } = state;
+  console.log("new articles", filteredAriticles);
 
   return (
     <main>
@@ -20,8 +21,8 @@ export default function Blogs({ user }) {
         })}
       </div>
       <div className="blogsContainer">
-        {newArticles.length > 0 &&
-          newArticles.map((article, index) => {
+        {filteredAriticles.length > 0 &&
+          filteredAriticles.map((article, index) => {
             return <BlogCard article={article} />;
           })}
       </div>
