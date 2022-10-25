@@ -5,3 +5,17 @@
     align-items: center;
     
 }
+.btnContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tagBtn{
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    margin: 3px;
+    justify-content: start;
+    cursor: pointer;
+}
+

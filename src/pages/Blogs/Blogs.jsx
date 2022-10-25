@@ -40,9 +40,9 @@ export default function Blogs({ user }) {
   return (
     <main>
       <h1>Blogs page</h1>
-      <div>
+      <div className="btnContainer">
         <Link to="/blogs">
-          <button>show all</button>
+          <button className="tagBtn">show all</button>
         </Link>
         {tags.map((tag) => {
           return <Button tag={tag} articles={articles} tags={tags} />;

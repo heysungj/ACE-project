@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Blogs({ tag, articles, tags }) {
@@ -25,8 +24,8 @@ export default function Blogs({ tag, articles, tags }) {
     });
   }
   return (
-    <div>
-      <button onClick={handleClick}>{tagName}</button>
-    </div>
+    <button onClick={handleClick} className="tagBtn">
+      {tagName}
+    </button>
   );
 }

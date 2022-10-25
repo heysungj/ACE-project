@@ -10,7 +10,7 @@ create for ACE after school program
 
 • As an Admin, I should be able to post blogs, edit Curriculum and share posts to social media
 
-![alt text](https://github.com/heysungj/ACE-project/blob/main/public/photos/head.png)
+![alt text](https://github.com/heysungj/ACE-project/blob/main/public/photos/version1.png)
 
 # Route Table:
 

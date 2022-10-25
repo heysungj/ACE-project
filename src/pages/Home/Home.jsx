@@ -42,7 +42,7 @@ export default function NewOrderPage() {
   let newList = blogList.slice(0, 2);
   return (
     <main>
-      <section className="content">
+      <section className="content" id="about">
         <div>
           <div
             id="carouselExampleIndicators"
@@ -63,6 +63,14 @@ export default function NewOrderPage() {
                 data-target="#carouselExampleIndicators"
                 data-slide-to="2"
               ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="3"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="4"
+              ></li>
             </ol>
             <div className="carousel-inner">
               <div className="carousel-item active">
@@ -74,10 +82,10 @@ export default function NewOrderPage() {
               <div className="carousel-item">
                 <img className="d-block w-100" src={ace2} alt="Third slide" />
               </div>
-              <div className="carousel-item active">
+              <div className="carousel-item ">
                 <img className="d-block w-100" src={ace6} alt="First slide" />
               </div>
-              <div className="carousel-item active">
+              <div className="carousel-item">
                 <img className="d-block w-100" src={ace4} alt="First slide" />
               </div>
             </div>
@@ -107,6 +115,7 @@ export default function NewOrderPage() {
             </a>
           </div>
         </div>
+
         <h1 className="title">About us</h1>
         <article>
           Needham ACE Program stands for Needham After-school with Comprehensive
@@ -116,7 +125,7 @@ export default function NewOrderPage() {
           Dancing (Hip Hop), LEGO, and Drawing.
         </article>
       </section>
-      <section className="content">
+      <section className="content" id="curriculum">
         <h1 className="title">Curriculum</h1>
         <img src={schedule} alt="" className="schedule" />
         <img src={malin} alt="" className="malin" />
@@ -134,7 +143,7 @@ export default function NewOrderPage() {
           </li>
         </ol>
       </section>
-      <section className="content">
+      <section className="content" id="blog">
         <h1 className="title">Blogs</h1>
         <div className="blogsContainer">
           {newList.length > 0 &&

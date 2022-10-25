@@ -90,9 +90,7 @@ export default function NavBar(props) {
           </div>
         </div>
       </nav>
-      <div>
-        <img src={steam} alt="" className="imgIsolater" />
-      </div>
+      <div>{/* <img src={steam} alt="" className="imgIsolater" /> */}</div>
     </div>
   );
 }
