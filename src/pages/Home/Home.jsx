@@ -1,8 +1,13 @@
 import React from "react";
-import schedule from "./schedule.jpg";
+import schedule from "./photos/schedule.jpg";
 import * as blogAPI from "../../utilities/users-api";
 import "./Home.css";
-import malin from "./malinlin_jpg.jpeg";
+import malin from "./photos/malinlin_jpg.jpeg";
+import ace1 from "./photos/ace_1.jpg";
+import ace2 from "./photos/ace_2.jpg";
+import ace3 from "./photos/ace_3.jpg";
+import ace4 from "./photos/ace_4.jpg";
+import ace6 from "./photos/ace_6.jpg";
 import { Link } from "react-router-dom";
 import * as contentful from "contentful";
 import { useEffect, useState } from "react";
@@ -61,17 +66,19 @@ export default function NewOrderPage() {
             </ol>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img className="d-block w-100" src={malin} alt="First slide" />
+                <img className="d-block w-100" src={ace1} alt="First slide" />
               </div>
               <div className="carousel-item">
-                <img
-                  className="d-block w-100"
-                  src={schedule}
-                  alt="Second slide"
-                />
+                <img className="d-block w-100" src={ace3} alt="Second slide" />
               </div>
               <div className="carousel-item">
-                <img className="d-block w-100" src="..." alt="Third slide" />
+                <img className="d-block w-100" src={ace2} alt="Third slide" />
+              </div>
+              <div className="carousel-item active">
+                <img className="d-block w-100" src={ace6} alt="First slide" />
+              </div>
+              <div className="carousel-item active">
+                <img className="d-block w-100" src={ace4} alt="First slide" />
               </div>
             </div>
             <a
