@@ -11,7 +11,9 @@ export default function Blogs({ tag, articles, tags }) {
   async function handleClick() {
     // filter articles and set result into newArticles
     const filteredAriticles = await articles.filter((article) => {
-      return article.metadata.tags[0].sys.id === tagName;
+      if (article.metadata.tags.length) {
+        return article.metadata.tags[0].sys.id === tagName;
+      }
     });
 
     console.log("filteredAriticles", filteredAriticles);

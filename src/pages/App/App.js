@@ -15,21 +15,19 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   return (
     <main className="App">
-      <>
-        <NavBar user={user} setUser={setUser} />
-        <div className="content">
-          <PhotoCarousel />
-        </div>
-        <Routes>
-          {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-          <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/login" element={<AuthPage setUser={setUser} />} />
-          <Route path="/blogs" element={<Blogs user={user} />} />
-          <Route path="/blogs/:tag" element={<FilteredBlogs />} />
-        </Routes>
-        <Footer />
-      </>
+      <NavBar user={user} setUser={setUser} />
+      <div className="content">
+        <PhotoCarousel />
+      </div>
+      <Routes>
+        {/* client-side route that renders the component instance if the path matches the url in the address bar */}
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/login" element={<AuthPage setUser={setUser} />} />
+        <Route path="/blogs" element={<Blogs user={user} />} />
+        <Route path="/blogs/:tag" element={<FilteredBlogs />} />
+      </Routes>
+      <Footer />
     </main>
   );
 }
