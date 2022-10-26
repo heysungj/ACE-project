@@ -9,6 +9,7 @@ import FilteredBlogs from "../FilteredBlogs/FilteredBlogs";
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../Home/Home";
 import Footer from "../../components/Footer/Footer";
+import PhotoCarousel from "../../components/PhotoCarousel/PhotoCarousel";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,6 +17,9 @@ export default function App() {
     <main className="App">
       <>
         <NavBar user={user} setUser={setUser} />
+        <div className="content">
+          <PhotoCarousel />
+        </div>
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
           <Route path="/" element={<Home />} />

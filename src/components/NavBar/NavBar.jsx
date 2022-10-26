@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as usersService from "../../utilities/users-service";
 import "./NavBar.css";
-import steam from "./STEAM.png";
+// import steam from "./STEAM.png";
 import aceLogo from "./needhamACE.png";
 
 export default function NavBar(props) {
@@ -35,21 +35,21 @@ export default function NavBar(props) {
             <ul className="navbar-nav">
               <div className="list-container">
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/">
+                  <a className="nav-link active" href="#about">
                     About
-                  </Link>
+                  </a>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link " to="/">
+                  <a className="nav-link " href="#curriculum">
                     Curriculum
-                  </Link>
+                  </a>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link " to="/">
+                  <a className="nav-link " href="#blog">
                     Blogs
-                  </Link>
+                  </a>
                 </li>
               </div>
 
@@ -90,7 +90,7 @@ export default function NavBar(props) {
           </div>
         </div>
       </nav>
-      <div>{/* <img src={steam} alt="" className="imgIsolater" /> */}</div>
+      <div></div>
     </div>
   );
 }
