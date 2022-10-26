@@ -12,10 +12,10 @@ export default function Blogs() {
 
   return (
     <main>
-      <h1>Blogs page</h1>
-      <div>
+      <h1>Blogs page ({filteredAriticles[0].metadata.tags[0].sys.id})</h1>
+      <div className="btnContainer">
         <Link to="/blogs">
-          <button>show all</button>
+          <button className="tagBtn">show all</button>
         </Link>
         {tags.map((tag) => {
           return <Button tag={tag} articles={articles} tags={tags} />;

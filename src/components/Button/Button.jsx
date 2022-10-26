@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { GoTag } from "react-icons/go";
+import "./Button.css";
 
 export default function Blogs({ tag, articles, tags }) {
   // use navigate
@@ -25,6 +27,7 @@ export default function Blogs({ tag, articles, tags }) {
   }
   return (
     <button onClick={handleClick} className="tagBtn">
+      <GoTag />
       {tagName}
     </button>
   );
