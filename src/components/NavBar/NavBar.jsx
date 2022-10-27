@@ -5,18 +5,19 @@ import "./NavBar.css";
 // import steam from "./STEAM.png";
 import aceLogo from "./needhamACE.png";
 
-export default function NavBar(props) {
-  function handleLogOut() {
-    usersService.logOut();
-    props.setUser(null);
-  }
-
+export default function NavBar() {
   return (
     <div className="navbar-wrapper">
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
           <Link className="navbar-brand" href="#" to="/">
-            <img src={aceLogo} alt="" width="150" height="150" />
+            <img
+              src={aceLogo}
+              alt=""
+              width="400"
+              height="150"
+              className="navbarPic"
+            />
           </Link>
           <button
             className="navbar-toggler"
@@ -51,6 +52,11 @@ export default function NavBar(props) {
                     Blogs
                   </a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link " href="/contact">
+                    Contact Us
+                  </a>
+                </li>
               </div>
 
               <div className="btnContainer">
@@ -61,30 +67,6 @@ export default function NavBar(props) {
                     </Link>
                   </button>
                 </li>
-
-                {props.user ? (
-                  <>
-                    <li className="nav-item">
-                      <button class="btn btn-primary" type="button">
-                        <Link
-                          className="nav-link insideBtn"
-                          to=""
-                          onClick={handleLogOut}
-                        >
-                          {props.user.name} Log Out
-                        </Link>
-                      </button>
-                    </li>
-                  </>
-                ) : (
-                  <li className="nav-item">
-                    <button class="btn btn-primary" type="button">
-                      <Link className="nav-link insideBtn" to="/login">
-                        Admin Login
-                      </Link>
-                    </button>
-                  </li>
-                )}
               </div>
             </ul>
           </div>

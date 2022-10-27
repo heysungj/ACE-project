@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import * as contentful from "contentful";
 import "./Blogs.css";
 
-export default function Blogs({ user }) {
+export default function Blogs() {
   const [articles, setArticles] = useState([]);
   const [tags, setTags] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,7 +1,7 @@
 .navbar-wrapper{
 display: flex;
 flex-wrap: wrap;
-flex-direction: column;
+flex-direction: row;
 }
 
 /* .imgIsolater{
@@ -53,4 +53,11 @@ flex-direction: column;
     height: auto;
     max-width: 100%;
     max-height: 90%;
+}
+
+@media screen and (width <= 414px){
+    .navbarPic{
+        width: 70%;
+        height: 20%;
+    }
 }
