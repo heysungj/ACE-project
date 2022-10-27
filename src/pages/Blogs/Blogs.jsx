@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlogCard from "../../components/BlogCard/BlogCard";
 import Button from "../../components/Button/Button";
-import Paginantion from "../../components/Pagination";
+import Paginantion from "../../components/Pagination/Pagination";
 // import TagButtons from '../../components/TagButtons/TagButtons';
 import { useEffect, useState } from "react";
 import * as contentful from "contentful";
@@ -64,6 +64,7 @@ export default function Blogs({ user }) {
         totalPosts={articles.length}
         postPerPage={postPerPage}
         setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
     </main>
   );

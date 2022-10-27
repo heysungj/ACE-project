@@ -5,3 +5,9 @@
     color: white;
 }
 
+.tagBtnActive {
+    border: none;
+    border-radius: 3px;
+    background-color: darkgrey;
+    color: white;
+}

@@ -7,18 +7,26 @@ import "../Blogs/Blogs.css";
 
 export default function Blogs() {
   const { state } = useLocation();
-  const { filteredAriticles, articles, tags } = state;
+  const { filteredAriticles, articles, tags, tagName } = state;
   console.log("new articles", filteredAriticles);
 
   return (
     <main>
-      <h1>Blogs page ({filteredAriticles[0].metadata.tags[0].sys.id})</h1>
+      <h1>Blogs page </h1>
       <div className="btnContainer">
         <Link to="/blogs">
           <button className="tagBtn">show all</button>
         </Link>
         {tags.map((tag) => {
-          return <Button tag={tag} articles={articles} tags={tags} />;
+          return (
+            <Button
+              tag={tag}
+              articles={articles}
+              tags={tags}
+              activeTag={tagName}
+              filteredAriticles={filteredAriticles}
+            />
+          );
         })}
       </div>
       <div className="blogsContainer">
