@@ -1,30 +1,89 @@
 import ReCAPTCHA from "react-google-recaptcha";
+import emailjs from "emailjs-com";
+import { useEffect, useState } from "react";
 
 export default function ContactForm() {
-  function onChange(value) {
-    console.log("Captcha value:", value);
+  const [disable, setDisable] = useState(true);
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  function onChange() {
+    setDisable(false);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
   }
 
   return (
     <div
-      className="cotainer border"
-      style={{ marginTop: "50px", width: "50%", backgroundImage: "url()" }}
+      class="cotainer border contactFormContainer"
+      style={{
+        marginTop: "50px",
+        width: "70%",
+        backgroundImage:
+          "url('https://img.freepik.com/free-vector/hand-drawn-world-children-s-day-background_23-2149111154.jpg?w=2000')",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
     >
-      <h1>Contact Us</h1>
-      <form>
-        <label>Name</label>
-        <input type="text" name="name" />
+      <h1 style={{ marginTop: "25px" }}>Contact Us</h1>
+      <form onSubmit={handleSubmit}>
+        <div
+          class="form-group"
+          style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
+        >
+          <label for="exampleFormControlInput1">Name</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div
+          class="form-group"
+          style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
+        >
+          <label for="exampleFormControlInput1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div
+          class="form-group"
+          style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
+        >
+          <label for="exampleFormControlInput1">Phone</label>
+          <input type="tel" class="form-control" />
+        </div>
+        <div
+          class="form-group"
+          style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
+        >
+          <label for="exampleFormControlTextarea1"> Message</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="4"
+          ></textarea>
 
-        <label>Email</label>
-        <input type="email" name="email" />
-
-        <label>Message</label>
-        <textarea type="email" name="message" rows="4" />
+          <ReCAPTCHA
+            class="form-group"
+            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            onChange={onChange}
+            style={{ width: "70%", marginTop: "10px" }}
+          />
+          <input
+            className="form-group btn btn-primary"
+            style={{ marginBottom: "25px", marginTop: "10px" }}
+            value="Send"
+            disabled={disable}
+          />
+        </div>
       </form>
-      <ReCAPTCHA
-        sitekey={process.env.REACT_APP_RECAPTURE_SITE_KEY}
-        onChange={onChange}
-      />
     </div>
   );
 }
