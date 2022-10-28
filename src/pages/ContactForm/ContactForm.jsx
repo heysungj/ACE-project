@@ -1,15 +1,9 @@
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "emailjs-com";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function ContactForm() {
   const [disable, setDisable] = useState(true);
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
 
   function onChange() {
     setDisable(false);
@@ -17,6 +11,17 @@ export default function ContactForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then((res) => {
+        console.log("res", res);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -38,7 +43,7 @@ export default function ContactForm() {
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
           <label for="exampleFormControlInput1">Name</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" name="name" />
         </div>
         <div
           class="form-group"
@@ -50,6 +55,7 @@ export default function ContactForm() {
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
+            name="email"
           />
         </div>
         <div
@@ -57,7 +63,7 @@ export default function ContactForm() {
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
           <label for="exampleFormControlInput1">Phone</label>
-          <input type="tel" class="form-control" />
+          <input type="tel" class="form-control" name="phone" />
         </div>
         <div
           class="form-group"
@@ -68,11 +74,12 @@ export default function ContactForm() {
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="4"
+            name="message"
           ></textarea>
 
           <ReCAPTCHA
             class="form-group"
-            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             onChange={onChange}
             style={{ width: "70%", marginTop: "10px" }}
           />
@@ -80,6 +87,7 @@ export default function ContactForm() {
             className="form-group btn btn-primary"
             style={{ marginBottom: "25px", marginTop: "10px" }}
             value="Send"
+            type="submit"
             disabled={disable}
           />
         </div>
