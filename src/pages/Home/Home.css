@@ -12,12 +12,15 @@ article, ol{
 }
 .schedule{
     margin: 5px;
-    width: 700px;
-    height: 300px;
+    width: 80%;
+    /* height: 300px; */
     border-radius: 5px;
 }
 .malin{
     border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+
 }
 .content{
     margin: 5px;
@@ -50,17 +53,17 @@ article, ol{
     width: 100%;
 }
 @media screen and (width <= 414px) {
-    .schedule{
+    /* .schedule{
         margin: 5px;
         width: 350px;
         height: 200px;
         border-radius: 5px;
-    }
-    .malin{
+    } */
+    /* .malin{
         border-radius: 5px;
         width: 350px;
         height: 250px;
-    }
+    } */
   }
 
   @media screen and (900px > width > 414px) {

@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function ContactForm() {
   const [disable, setDisable] = useState(true);
 
+  console.log(window.innerWidth);
   function onChange() {
     setDisable(false);
   }
@@ -43,7 +44,7 @@ export default function ContactForm() {
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
           <label for="exampleFormControlInput1">Name</label>
-          <input type="text" class="form-control" name="name" />
+          <input type="text" class="form-control" name="name" required />
         </div>
         <div
           class="form-group"
@@ -56,6 +57,7 @@ export default function ContactForm() {
             id="exampleFormControlInput1"
             placeholder="name@example.com"
             name="email"
+            required
           />
         </div>
         <div
@@ -63,7 +65,7 @@ export default function ContactForm() {
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
           <label for="exampleFormControlInput1">Phone</label>
-          <input type="tel" class="form-control" name="phone" />
+          <input type="tel" class="form-control" name="phone" required />
         </div>
         <div
           class="form-group"
@@ -75,13 +77,15 @@ export default function ContactForm() {
             id="exampleFormControlTextarea1"
             rows="4"
             name="message"
+            required
           ></textarea>
 
           <ReCAPTCHA
             class="form-group"
             sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             onChange={onChange}
-            style={{ width: "70%", marginTop: "10px" }}
+            size={window.innerWidth < 500 ? "compact" : "normal"}
+            style={{ marginTop: "10px" }}
           />
           <input
             className="form-group btn btn-primary"
