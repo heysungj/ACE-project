@@ -60,7 +60,7 @@ export default function NavBar() {
 
               <div className="btnContainer">
                 <li className="nav-item">
-                  <button class="btn btn-success" type="button">
+                  <button class="btn btn-primary" type="button">
                     <Link className="nav-link insideBtn " to="/">
                       Parent Portal
                     </Link>

@@ -80,7 +80,7 @@ export default function NewOrderPage() {
             })}
         </div>
         <Link to="/blogs">
-          <button className="btn btn-outline-info">More Blogs</button>
+          <button className="btn btn-primary">More Blogs</button>
         </Link>
       </section>
     </main>

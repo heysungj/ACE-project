@@ -4,7 +4,11 @@ main{
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    text-align: center;
+    text-align: justify;
+}
+
+article, ol{
+    text-align: justify;
 }
 .schedule{
     margin: 5px;
@@ -22,6 +26,7 @@ main{
     flex-wrap: wrap;
     align-items: center;
     width:80% ;
+    text-align: center;
 }
 
 .title{

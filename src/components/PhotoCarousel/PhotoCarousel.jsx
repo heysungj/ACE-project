@@ -3,6 +3,8 @@ import ace2 from "./photos/ace_2.jpg";
 import ace3 from "./photos/ace_3.jpg";
 import ace4 from "./photos/ace_4.jpg";
 import ace6 from "./photos/ace_6.jpg";
+import ace7 from "./photos/ace_7.jpg";
+import ace8 from "./photos/ace_8.jpg";
 
 export default function PhotoCarousel() {
   return (
@@ -22,6 +24,8 @@ export default function PhotoCarousel() {
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -38,6 +42,12 @@ export default function PhotoCarousel() {
           </div>
           <div className="carousel-item">
             <img className="d-block w-100" src={ace4} alt="First slide" />
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={ace8} alt="First slide" />
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={ace7} alt="First slide" />
           </div>
         </div>
         <a
