@@ -1,8 +1,8 @@
 import "./BlogCard.css";
 import richtextRenderOptions from "./richtextRenderOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import marked from "marked";
-import { useNavigate } from "react-router-dom";
+// import marked from "marked";
+
 import { useEffect, useState } from "react";
 
 export default function ProductCard({ article, user }) {

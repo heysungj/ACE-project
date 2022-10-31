@@ -1,13 +1,28 @@
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "emailjs-com";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ContactForm() {
+  const navigate = useNavigate();
   const [disable, setDisable] = useState(true);
-
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  // use navigate
   console.log(window.innerWidth);
+
   function onChange() {
     setDisable(false);
+  }
+
+  //   update formData while typing
+  function handleChange(e) {
+    const newFormData = { ...formData, [e.target.name]: e.target.value };
+    setFormData(newFormData);
   }
 
   function handleSubmit(e) {
@@ -23,6 +38,13 @@ export default function ContactForm() {
         console.log("res", res);
       })
       .catch((err) => console.log(err));
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   }
 
   return (
@@ -44,19 +66,28 @@ export default function ContactForm() {
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
           <label for="exampleFormControlInput1">Name</label>
-          <input type="text" class="form-control" name="name" required />
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            onChange={handleChange}
+            value={formData.name}
+            required
+          />
         </div>
         <div
           class="form-group"
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
-          <label for="exampleFormControlInput1">Email address</label>
+          <label for="exampleFormControlInput1">Email </label>
           <input
             type="email"
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
             name="email"
+            onChange={handleChange}
+            value={formData.email}
             required
           />
         </div>
@@ -65,7 +96,14 @@ export default function ContactForm() {
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
           <label for="exampleFormControlInput1">Phone</label>
-          <input type="tel" class="form-control" name="phone" required />
+          <input
+            type="tel"
+            class="form-control"
+            name="phone"
+            onChange={handleChange}
+            value={formData.phone}
+            required
+          />
         </div>
         <div
           class="form-group"
@@ -77,6 +115,8 @@ export default function ContactForm() {
             id="exampleFormControlTextarea1"
             rows="4"
             name="message"
+            onChange={handleChange}
+            value={formData.message}
             required
           ></textarea>
 
