@@ -53,8 +53,7 @@ export default function ContactForm() {
       style={{
         marginTop: "50px",
         width: "70%",
-        backgroundImage:
-          "url('https://img.freepik.com/free-vector/hand-drawn-world-children-s-day-background_23-2149111154.jpg?w=2000')",
+        backgroundColor: "bisque",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
@@ -65,7 +64,12 @@ export default function ContactForm() {
           class="form-group"
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
-          <label for="exampleFormControlInput1">Name</label>
+          <label
+            for="exampleFormControlInput1"
+            style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
+          >
+            Name
+          </label>
           <input
             type="text"
             class="form-control"
@@ -79,7 +83,12 @@ export default function ContactForm() {
           class="form-group"
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
-          <label for="exampleFormControlInput1">Email </label>
+          <label
+            for="exampleFormControlInput1"
+            style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
+          >
+            Email{" "}
+          </label>
           <input
             type="email"
             class="form-control"
@@ -95,7 +104,12 @@ export default function ContactForm() {
           class="form-group"
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
-          <label for="exampleFormControlInput1">Phone</label>
+          <label
+            for="exampleFormControlInput1"
+            style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
+          >
+            Phone
+          </label>
           <input
             type="tel"
             class="form-control"
@@ -109,7 +123,13 @@ export default function ContactForm() {
           class="form-group"
           style={{ marginLeft: "25px", marginRight: "25px", marginTop: "10px" }}
         >
-          <label for="exampleFormControlTextarea1"> Message</label>
+          <label
+            for="exampleFormControlTextarea1"
+            style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
+          >
+            {" "}
+            Message
+          </label>
           <textarea
             class="form-control"
             id="exampleFormControlTextarea1"
