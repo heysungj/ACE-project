@@ -14,7 +14,7 @@ export default function Footer() {
         <a href="https://www.facebook.com/needham.ace/">
           <FaFacebookF className="iconBtn" />
         </a>
-        <a href="/">
+        <a href="https://www.instagram.com/needham.ace/">
           <BsInstagram className="iconBtn" />
         </a>
         <a href="https://www.youtube.com/@NeedhamACE">

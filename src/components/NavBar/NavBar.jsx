@@ -13,8 +13,8 @@ export default function NavBar() {
             <img
               src={aceLogo}
               alt=""
-              width="400"
-              height="130"
+              width="310"
+              height="100"
               className="navbarPic"
             />
           </Link>
@@ -35,19 +35,19 @@ export default function NavBar() {
             <ul className="navbar-nav">
               <div className="list-container">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#about">
+                  <a className="nav-link active" href="/#about">
                     About
                   </a>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link " href="#curriculum">
+                  <a className="nav-link " href="/#curriculum">
                     Curriculum
                   </a>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link " href="#blog">
+                  <a className="nav-link " href="/#blog">
                     Blogs
                   </a>
                 </li>

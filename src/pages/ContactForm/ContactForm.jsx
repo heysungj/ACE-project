@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ContactForm() {
+  let sent = false;
   const navigate = useNavigate();
   const [disable, setDisable] = useState(true);
   const [formData, setFormData] = useState({
@@ -38,7 +39,7 @@ export default function ContactForm() {
         console.log("res", res);
       })
       .catch((err) => console.log(err));
-
+    sent = true;
     setFormData({
       name: "",
       email: "",
@@ -52,12 +53,13 @@ export default function ContactForm() {
       class="cotainer border contactFormContainer"
       style={{
         marginTop: "50px",
-        width: "70%",
+        width: "80%",
         backgroundColor: "bisque",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
     >
+      {sent ? <p></p> : <></>}
       <h1 style={{ marginTop: "25px" }}>Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <div
