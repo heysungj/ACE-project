@@ -11,15 +11,15 @@ export default function Footer() {
         1132 Highland Ave, Needham, MA 02494
       </p>
       <div>
-        <Link to="/">
+        <a href="https://www.facebook.com/needham.ace/">
           <FaFacebookF className="iconBtn" />
-        </Link>
-        <Link to="/">
+        </a>
+        <a href="/">
           <BsInstagram className="iconBtn" />
-        </Link>
-        <Link to="/">
+        </a>
+        <a href="https://www.youtube.com/@NeedhamACE">
           <FaYoutube className="iconBtn" />
-        </Link>
+        </a>
       </div>
     </footer>
   );
