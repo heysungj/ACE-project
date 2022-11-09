@@ -14,7 +14,7 @@ export default function NavBar() {
               src={aceLogo}
               alt=""
               width="400"
-              height="150"
+              height="130"
               className="navbarPic"
             />
           </Link>

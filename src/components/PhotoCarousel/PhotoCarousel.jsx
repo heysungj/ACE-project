@@ -60,7 +60,7 @@ export default function PhotoCarousel() {
             className="carousel-control-prev-icon"
             aria-hidden="true"
           ></span>
-          <span className="sr-only">Previous</span>
+          <span className="sr-only"></span>
         </a>
         <a
           className="carousel-control-next"
@@ -72,7 +72,7 @@ export default function PhotoCarousel() {
             className="carousel-control-next-icon"
             aria-hidden="true"
           ></span>
-          <span className="sr-only">Next</span>
+          <span className="sr-only"></span>
         </a>
       </div>
     </div>

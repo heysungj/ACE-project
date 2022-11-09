@@ -5,6 +5,7 @@ flex-direction: row;
 justify-content: center;
 }
 
+
 /* .imgIsolater{
     background: url('./image0.jpeg');
     background-size: cover;
@@ -58,7 +59,7 @@ justify-content: center;
 
 @media screen and (width <= 414px){
     .navbarPic{
-        width: 70%;
+        width: 60%;
         height: 20%;
     }
 }
