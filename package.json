@@ -2,6 +2,10 @@
   "name": "mern-infrastructure",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x",
+    "npm": "8.1.2"
+  },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@testing-library/jest-dom": "^5.15.0",
