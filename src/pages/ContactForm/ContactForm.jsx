@@ -2,9 +2,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "emailjs-com";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toastr from "toastr";
 
 export default function ContactForm() {
-  let sent = false;
   const navigate = useNavigate();
   const [disable, setDisable] = useState(true);
   const [formData, setFormData] = useState({
@@ -39,15 +39,34 @@ export default function ContactForm() {
         console.log("res", res);
       })
       .catch((err) => console.log(err));
-    sent = true;
+
     setFormData({
       name: "",
       email: "",
       phone: "",
       message: "",
     });
+    // show success message
+    toastr.success("Message Sent Successfully");
   }
 
+  // toastr.options = {
+  //   "closeButton": false,
+  //   "debug": false,
+  //   "newestOnTop": false,
+  //   "progressBar": false,
+  //   "positionClass": "toast-top-center",
+  //   "preventDuplicates": true,
+  //   "onclick": null,
+  //   "showDuration": "50",
+  //   "hideDuration": "1000",
+  //   "timeOut": "1000",
+  //   "extendedTimeOut": "1000",
+  //   "showEasing": "swing",
+  //   "hideEasing": "linear",
+  //   "showMethod": "fadeIn",
+  //   "hideMethod": "fadeOut"
+  // }
   return (
     <div
       class="cotainer border contactFormContainer"
@@ -59,7 +78,6 @@ export default function ContactForm() {
         backgroundSize: "cover",
       }}
     >
-      {sent ? <p></p> : <></>}
       <h1 style={{ marginTop: "25px" }}>Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <div
@@ -149,6 +167,7 @@ export default function ContactForm() {
             size={window.innerWidth < 500 ? "compact" : "normal"}
             style={{ marginTop: "10px" }}
           />
+
           <input
             className="form-group btn btn-primary"
             style={{ marginBottom: "25px", marginTop: "10px" }}
