@@ -8,7 +8,7 @@
     padding: 15px;
 }
 
-iframe{
+.blogIframe{
     border-radius: 5px;
     width: 560px;
     height: 315px;
@@ -20,7 +20,7 @@ iframe{
         border-radius: 5px;
     }
     
-    iframe{
+    .blogIframe{
         border-radius: 5px;
         margin-left: 1px;
         margin-right: 1px;

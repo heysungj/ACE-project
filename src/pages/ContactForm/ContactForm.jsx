@@ -88,7 +88,7 @@ export default function ContactForm() {
             for="exampleFormControlInput1"
             style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
           >
-            Name
+            Name <span style={{ color: "red" }}> *</span>
           </label>
           <input
             type="text"
@@ -107,7 +107,7 @@ export default function ContactForm() {
             for="exampleFormControlInput1"
             style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
           >
-            Email{" "}
+            Email<span style={{ color: "red" }}> *</span>
           </label>
           <input
             type="email"
@@ -128,7 +128,7 @@ export default function ContactForm() {
             for="exampleFormControlInput1"
             style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
           >
-            Phone
+            Phone <span style={{ color: "red" }}> *</span>
           </label>
           <input
             type="tel"
@@ -148,7 +148,7 @@ export default function ContactForm() {
             style={{ width: "100%", marginBottom: "5px", textAlign: "justify" }}
           >
             {" "}
-            Message
+            Message <span style={{ color: "red" }}> *</span>
           </label>
           <textarea
             class="form-control"
