@@ -72,7 +72,7 @@ export default function ContactForm() {
       class="cotainer border contactFormContainer"
       style={{
         marginTop: "50px",
-        width: "80%",
+        width: "90%",
         backgroundColor: "bisque",
         backgroundPosition: "center",
         backgroundSize: "cover",
