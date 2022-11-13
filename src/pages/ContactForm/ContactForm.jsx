@@ -167,15 +167,14 @@ export default function ContactForm() {
             size={window.innerWidth < 500 ? "compact" : "normal"}
             style={{ marginTop: "10px" }}
           />
-
-          <input
-            className="form-group btn btn-primary"
-            style={{ marginBottom: "25px", marginTop: "10px" }}
-            value="Send"
-            type="submit"
-            disabled={disable}
-          />
         </div>
+        <input
+          className="form-group btn btn-primary"
+          style={{ marginBottom: "25px", marginTop: "10px" }}
+          value="Send"
+          type="submit"
+          disabled={disable}
+        />
       </form>
     </div>
   );
