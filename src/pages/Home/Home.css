@@ -30,6 +30,8 @@ article, ol{
     align-items: center;
     width:90% ;
     text-align: center;
+    padding-top: 130px;
+    margin-top: -130px;
 }
 
 .title{
@@ -53,6 +55,17 @@ article, ol{
     width: 100%;
 }
 @media screen and (width <= 414px) {
+    .content{
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        width:90% ;
+        text-align: center;
+        padding-top: 230px;
+        margin-top: -230px;
+    }
     /* .schedule{
         margin: 5px;
         width: 350px;
@@ -77,6 +90,18 @@ article, ol{
         border-radius: 5px;
         width: 550px;
         height: 350px;
+    }
+
+    .content{
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        width:90% ;
+        text-align: center;
+        padding-top: 230px;
+        margin-top: -230px;
     }
   }
 
