@@ -12,13 +12,13 @@ article, ol{
 }
 .schedule{
     margin: 5px;
-    width: 80%;
+    width: 100%;
     /* height: 300px; */
     border-radius: 5px;
 }
 .malin{
     border-radius: 5px;
-    width: 80%;
+    width: 100%;
     margin-bottom: 10px;
 
 }

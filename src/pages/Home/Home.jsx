@@ -2,7 +2,8 @@ import React from "react";
 import schedule from "./photos/schedule.jpg";
 // import * as blogAPI from "../../utilities/users-api";
 import "./Home.css";
-import malin from "./photos/malinlin_jpg.jpeg";
+import malin from "./photos/malinlin.png";
+import aceKids from "./photos/ace_kids.png";
 import { Link } from "react-router-dom";
 import * as contentful from "contentful";
 import { useEffect, useState } from "react";
@@ -42,32 +43,32 @@ export default function NewOrderPage() {
       <section className="content" id="about">
         <h1 className="title">About us</h1>
         <article>
-          Needham ACE Program stands for Needham After-school with Comprehensive
-          Enrichment. The Program provides transportation from Needham Public
-          Schools to the after-school location. The Program Curriculum include
-          enrichment of Mandarin, Math, Wordly Wise 3000/Reading Club, STEM,
-          Dancing (Hip Hop), LEGO, and Drawing.
+          Needham ACE Program stands for Needham Afterschool with Comprehensive
+          Enrichment (ACE). The Program follows the schedule of Needham Public
+          Schools and provides a bilingual environment [Mandarin and English]
+          with a variety of enrichment based on teaching staff availability,
+          including Mandarin, Mathematics, Robotics &amp; Coding, Drawing,
+          Crafting, Singing, Dancing and STEM Projects.
         </article>
+        <img src={aceKids} alt="" className="malin" />
       </section>
 
       {/* curriculum */}
       <section className="content" id="curriculum">
         <h1 className="title">Curriculum</h1>
+        <article>
+          We work with our talented teaching staff and partner vendors to
+          provide combinations of different enrichment for each weekday. For
+          example, we offer Mathematics and Drawing on Tuesday and offer
+          Mandarin and STEM project on Friday. In addition, we have many
+          different toys, LEGO station, air hockey, and foosball table on site
+          for creative fun time. When weather permitting, we also offer field
+          trips to library, farms, and museums in the neighborhood. The
+          curriculum every semester may be subject to change based on teaching
+          staff availability.
+        </article>
         <img src={schedule} alt="" className="schedule" />
         <img src={malin} alt="" className="malin" />
-        <h4>Fall 2022 After School Operation Schedule: </h4>
-
-        <ol class="list-group list-group-numbered">
-          <li class="list-group-item">
-            Needham ACE follows NPS school calendars and health protocols
-          </li>
-          <li class="list-group-item">Monday - Friday: 3pm-6pm</li>
-          <li class="list-group-item">Early Release Schedule: 12:30pm-6pm</li>
-          <li class="list-group-item">
-            For pick-up procedures, please refer to the Parent Handbook which
-            will be shared via email after registration.
-          </li>
-        </ol>
       </section>
 
       {/* blog part */}
