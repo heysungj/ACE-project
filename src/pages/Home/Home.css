@@ -19,6 +19,7 @@ article, ol{
 .malin{
     border-radius: 5px;
     width: 100%;
+    margin-top: 10px;
     margin-bottom: 10px;
 
 }
@@ -79,7 +80,7 @@ article, ol{
     } */
   }
 
-  @media screen and (900px > width > 414px) {
+  /* @media screen and (900px > width > 414px) {
     .schedule{
         margin: 5px;
         width: 500px;
@@ -103,7 +104,7 @@ article, ol{
         padding-top: 230px;
         margin-top: -230px;
     }
-  }
+  } */
 
   .list-group{
     width: 70vw;

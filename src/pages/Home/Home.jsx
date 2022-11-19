@@ -67,7 +67,6 @@ export default function NewOrderPage() {
           curriculum every semester may be subject to change based on teaching
           staff availability.
         </article>
-        <img src={schedule} alt="" className="schedule" />
         <img src={malin} alt="" className="malin" />
       </section>
 
