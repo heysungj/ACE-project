@@ -1,5 +1,5 @@
 import React from "react";
-import schedule from "./photos/schedule.jpg";
+import projects from "./photos/projects.jpg";
 // import * as blogAPI from "../../utilities/users-api";
 import "./Home.css";
 import malin from "./photos/malinlin.png";
@@ -44,11 +44,10 @@ export default function NewOrderPage() {
         <h1 className="title">About us</h1>
         <article>
           Needham ACE Program stands for Needham Afterschool with Comprehensive
-          Enrichment (ACE). The Program follows the schedule of Needham Public
-          Schools and provides a bilingual environment [Mandarin and English]
-          with a variety of enrichment based on teaching staff availability,
-          including Mandarin, Mathematics, Robotics &amp; Coding, Drawing,
-          Crafting, Singing, Dancing and STEM Projects.
+          Enrichment (ACE). The Program aims to provide high quality enrichment
+          classes to students from kindergarten to 5 th grade. The program is
+          designed with a focus on students’ involvement and interaction, in
+          order to improve both academic and social skills.
         </article>
         <img src={aceKids} alt="" className="malin" />
       </section>
@@ -58,16 +57,19 @@ export default function NewOrderPage() {
         <h1 className="title">Curriculum</h1>
         <article>
           We work with our talented teaching staff and partner vendors to
-          provide combinations of different enrichment for each weekday. For
-          example, we offer Mathematics and Drawing on Tuesday and offer
-          Mandarin and STEM project on Friday. In addition, we have many
-          different toys, LEGO station, air hockey, and foosball table on site
-          for creative fun time. When weather permitting, we also offer field
-          trips to library, farms, and museums in the neighborhood. The
-          curriculum every semester may be subject to change based on teaching
-          staff availability.
+          provide combinations of different enrichment for each weekday. Our
+          enrichment classes include Mandarin, Mathematics, Robotics &amp;
+          Coding, Drawing, Crafting, Singing, Dancing and STEM Projects. In
+          addition, we encourage a bilingual environment for students to immerse
+          in language and culture learning. Here is the
+          <a href="https://docs.google.com/spreadsheets/d/1xgMySG3gXg6yaExEezzD7lfduArlM7oyvM8ycR3i1B0/edit#gid=0">
+            {" "}
+            Current Curriculum
+          </a>
+          .
         </article>
         <img src={malin} alt="" className="malin" />
+        <img src={projects} alt="" className="malin" />
       </section>
 
       {/* blog part */}

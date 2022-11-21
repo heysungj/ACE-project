@@ -47,7 +47,7 @@ export default function ProductCard({ article, user }) {
 
   return (
     <div className="blogContainer">
-      <h4>{title}</h4>
+      <h6>{title}</h6>
       <label style={{ color: "darkgray", weight: "700" }}> {newDate}</label>
       {documentToReactComponents(
         article.fields.blogContent,
