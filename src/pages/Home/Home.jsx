@@ -45,7 +45,7 @@ export default function NewOrderPage() {
         <article>
           Needham ACE Program stands for Needham Afterschool with Comprehensive
           Enrichment (ACE). The Program aims to provide high quality enrichment
-          classes to students from kindergarten to 5 th grade. The program is
+          classes to students from kindergarten to 5th grade. The program is
           designed with a focus on students’ involvement and interaction, in
           order to improve both academic and social skills.
         </article>
